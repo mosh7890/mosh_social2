@@ -1,6 +1,6 @@
 from .base import *
-import sentry_sdk as sentry
-from sentry_sdk.integrations.django import DjangoIntegration
+# import sentry_sdk as sentry
+# from sentry_sdk.integrations.django import DjangoIntegration
 
 # DATABASES = {
 #     'default': {
@@ -52,4 +52,4 @@ AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_PRELOAD_METADATA = True
 
-sentry.init(config('SENTRY_DSN'), integrations=[DjangoIntegration()])
+# sentry.init(config('SENTRY_DSN'), integrations=[DjangoIntegration()])
