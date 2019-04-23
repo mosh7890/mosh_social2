@@ -1,4 +1,5 @@
 from .base import *
+
 # import sentry_sdk as sentry
 # from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -36,6 +37,8 @@ DATABASES = {
     }
 }
 
+INSTALLED_APPS.append('storages')
+
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 STATICFILES_LOCATION = 'static'
 
@@ -45,11 +48,15 @@ MEDIAFILES_LOCATION = 'media'
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-AWS_DEFAULT_ACL = None
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
-AWS_QUERYSTRING_AUTH = False
 AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_DEFAULT_ACL = None
 AWS_PRELOAD_METADATA = True
+AWS_QUERYSTRING_AUTH = False
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
 
 # sentry.init(config('SENTRY_DSN'), integrations=[DjangoIntegration()])

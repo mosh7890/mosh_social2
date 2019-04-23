@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'stdimage',
-    'storages',
     'posts',
     'users',
 ]
@@ -89,15 +88,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # noinspection PyUnresolvedReferences
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'www', 'static')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), '.', 'www', 'static')
 # noinspection PyUnresolvedReferences
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'www', 'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), '.', 'www', 'media')
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'mystatic'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 AUTH_USER_MODEL = 'users.User'
