@@ -287,3 +287,6 @@ my.cnf
 
 #Zappa
 zappa_settings.json
+
+#coverage
+.coveragerc

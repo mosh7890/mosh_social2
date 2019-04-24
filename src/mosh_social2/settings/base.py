@@ -88,9 +88,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # noinspection PyUnresolvedReferences
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), '.', 'www', 'static')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'www', 'static')
 # noinspection PyUnresolvedReferences
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), '.', 'www', 'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'www', 'media')
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
