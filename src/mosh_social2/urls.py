@@ -16,6 +16,7 @@ urlpatterns = [
          lambda x: HttpResponse('User-Agent: *\nDisallow:', content_type='text/plain'), name='robots_file'),
     path('', index, name='index'),
     path('admin/login/', admin.site.urls),
+    path('api/', include('posts.urls')),
     path('api/', include('users.urls')),
     *static(settings.STATIC_URL, document_root=settings.STATIC_URL),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),

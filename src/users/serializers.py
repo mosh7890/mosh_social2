@@ -1,6 +1,18 @@
 import os
+from rest_auth.registration.serializers import RegisterSerializer
 from rest_auth.serializers import UserDetailsSerializer
 from rest_framework import serializers as rs
+from rest_framework.serializers import ImageField
+
+
+# noinspection PyAbstractClass
+class CustomRegisterSerializer(RegisterSerializer):  # Inherit RegisterSerializer
+    profile_pic = ImageField(required=False)
+
+    def custom_signup(self, request, user):
+        if self.validated_data.get('profile_pic', ''):
+            user.profile_pic = self.validated_data.get('profile_pic', '')
+        user.save(update_fields=['profile_pic', ])
 
 
 # noinspection PyAbstractClass
